@@ -54,17 +54,45 @@
 
         static void Main()
         {
-            Random rand = new Random();
             const int N = 40;
             int[] Arr = new int[N];
-            for (int i = 0; i < N; ++i)
+            Console.Write("Choose a option of input array(1 - input numbers yourself, 2 - input numbers from file, 3 - input numbers randomly):");
+            int Pr = Convert.ToInt32(Console.ReadLine());
+            switch (Pr)
             {
-                Arr[i] = rand.Next(-50, 50);
-            }
-            Console.WriteLine("Array:");
-            foreach (int value in Arr)
-            {
-                Console.Write(value.ToString().PadLeft(10));
+                case 1:
+                    for (int i = 0; i < N; ++i)
+                    {
+                        Console.Write("Input a number for array:");
+                        Arr[i] = int.Parse(Console.ReadLine());
+                    }
+                    Console.WriteLine("Array:");
+                    foreach (int value in Arr)
+                    {
+                        Console.Write(value.ToString().PadLeft(10));
+                    }
+                    break;
+                case 2:
+                    string[] lines = File.ReadAllLines("input.txt");
+                    Arr = lines.Take(N).Select(int.Parse).ToArray();
+                    Console.WriteLine("Array:");
+                    foreach (int value in Arr)
+                    {
+                        Console.Write(value.ToString().PadLeft(10));
+                    }
+                    break;
+                case 3:
+                    Random rand = new Random();
+                    for (int i = 0; i < N; ++i)
+                    {
+                        Arr[i] = rand.Next(-50, 50);
+                    }
+                    Console.WriteLine("Array:");
+                    foreach (int value in Arr)
+                    {
+                        Console.Write(value.ToString().PadLeft(10));
+                    }
+                    break;
             }
             Console.WriteLine();
             int minNumber = MinNum(Arr, N);

@@ -95,7 +95,7 @@ namespace Lab_5
         {
             get { return this.typeOfWork == typeOfWork; }
         }
-        public void AddDevices(params Device[] newDevices)
+        public void AddDevices(Device[] newDevices)
         {
             foreach(Device device in newDevices)
             {
@@ -110,7 +110,7 @@ namespace Lab_5
         {
             return $"Person: {person}, type of work: {TypeOfWork.Home}, IP address: {ipAddress}, devices: {devices}";
         }
-        public override string ToShortString()
+        public string ToShortString()
         {
             return $"Person: {person}, type of work: {TypeOfWork.Home}, IP address: {ipAddress}, Total cost: {totalCost}";
         }

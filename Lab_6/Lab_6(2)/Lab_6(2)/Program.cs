@@ -16,6 +16,7 @@ namespace Lab_6_2_
             {
                 Console.WriteLine(devices[i].ToString());
             }
+            Console.WriteLine("Devices with number containing '2709':");
             for (int i = 0; i < devices.Length; i++)
             {
                 bool isMatch = Regex.IsMatch(devices[i].DeviceNumber.ToString(), "2709");
@@ -23,7 +24,7 @@ namespace Lab_6_2_
                 if (isMatch == true)
                 {
                     Console.WriteLine(devices[i].ToString());
-                }   
+                }
             }
         }
     }

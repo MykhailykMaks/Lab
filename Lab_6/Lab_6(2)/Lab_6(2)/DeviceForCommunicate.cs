@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,9 +9,9 @@ namespace Lab_6_2_
 {
     abstract class DeviceForCommunicate
     {
-        private string? deviceName;
-        private string? typeOfDevice;
-        private int deviceNumber;
+        public string? deviceName;
+        public string? typeOfDevice;
+        public int deviceNumber;
 
         public DeviceForCommunicate()
         {
@@ -59,6 +60,11 @@ namespace Lab_6_2_
                 }
                 deviceNumber = value;
             }
+        }
+        public string giveMeDeviceNumber
+        {
+            get { return deviceNumber.ToString(); }
+            set { value = deviceNumber.ToString(); }
         }
         public override string ToString()
         {

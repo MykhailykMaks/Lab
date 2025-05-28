@@ -16,7 +16,7 @@ namespace Lab_6_2_
             mobilePhoneName = string.Empty;
             mobilePhoneNumber = 0;
         }
-        public MobilePhone(string mobilePhoneName, int mobilePhoneNumber) : base()
+        public MobilePhone(string deviceName, string typeOfDevice, int deviceNumber, string mobilePhoneName, int mobilePhoneNumber) : base(deviceName, typeOfDevice, deviceNumber)
         {
             this.mobilePhoneName = mobilePhoneName;
             this.mobilePhoneNumber = mobilePhoneNumber;

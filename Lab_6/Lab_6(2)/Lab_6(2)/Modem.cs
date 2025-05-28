@@ -15,7 +15,7 @@ namespace Lab_6_2_
             modemName = string.Empty;
             modemNumber = 0;
         }
-        public Modem(string modemName, int modemNumber) : base()
+        public Modem(string deviceName, string typeOfDevice, int deviceNumber, string modemName, int modemNumber) : base(deviceName, typeOfDevice, deviceNumber)
         {
             this.modemName = modemName;
             this.modemNumber = modemNumber;

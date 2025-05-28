@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_7_3_
 {
-    class BCipher
+    class BCipher : ICipher
     {
         public string text;
         public BCipher(string text)
@@ -56,10 +56,10 @@ namespace Lab_7_3_
             {
                 textSymbols[i] = char.ToUpper(textSymbols[i]);
                 char symbol = textSymbols[i];
-                int index = alphabet.IndexOf(symbol);
+                int index = reverseAlphabet.IndexOf(symbol);
                 if (index != -1)
                 {
-                    char encodedSymbol = reverseAlphabet[index];
+                    char encodedSymbol = alphabet[index];
                     decodedSymbols[i] = encodedSymbol;
                 }
                 else

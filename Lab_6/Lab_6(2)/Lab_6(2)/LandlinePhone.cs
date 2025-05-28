@@ -16,7 +16,7 @@ namespace Lab_6_2_
             phoneName = string.Empty;
             phoneNumber = 0;
         }
-        public LandlinePhone(string phoneName, int phoneNumber) : base()
+        public LandlinePhone(string deviceName, string typeOfDevice, int deviceNumber, string phoneName, int phoneNumber) : base(deviceName, typeOfDevice, deviceNumber)
         {
             this.phoneName = phoneName;
             this.phoneNumber = phoneNumber;
@@ -38,7 +38,7 @@ namespace Lab_6_2_
             get { return phoneNumber; }
             set
             {
-                if (int.TryParse(value.ToString(), out int parsedNumber))
+                if (int.TryParse(value.ToString(), out int phoneNumber))
                 {
                     throw new ArgumentException("Phone number must be whole number");
                 }

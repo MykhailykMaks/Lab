@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Xml.Serialization;
 
-namespace Lab_10
+namespace Lab_1_1_
 {
     internal class Program
     {
@@ -12,32 +13,41 @@ namespace Lab_10
             Candidate candidate1 = Create.CreateRandomCandidate();
             Candidate candidate2 = Create.CreateRandomCandidate();
             Candidate candidate3 = Create.CreateRandomCandidate();
-            Candidate[] candidates = { candidate1, candidate2, candidate3 };
-            foreach (Candidate candidate in candidates)
-            {
-                Console.WriteLine(candidate.ToString());
-            }
+            List<Candidate> candidates = new List<Candidate>() { candidate1, candidate2, candidate3 };
+            Methods.PrintListOfCandidates(candidates);
+
+            Methods.AddCandidates(candidates);
+            Console.WriteLine("List after adding a new candidate");
+            Methods.PrintListOfCandidates(candidates);
+            Methods.RemoveCandidates(candidates);
+            Console.WriteLine("List after removing a candidate");
+            Methods.PrintListOfCandidates(candidates);
+
             Console.WriteLine("Top 3 candidates by the popularity:");
-            Candidate.Top3ByPopularity(candidates);
+            Methods.Top3ByPopularity(candidates);
             Console.WriteLine("Parties that sent candidates:");
-            Candidate.PartiasWhoSendCandidates(candidates);
+            Methods.PartiasWhoSendCandidates(candidates);
+
+            Methods.ChangeInfoAboutCandidate(candidates);
+            Console.WriteLine("List after changes");
+            Methods.PrintListOfCandidates(candidates);
 
             using (FileStream fs = new FileStream("Candidates.json", FileMode.Create))
             {
-               await JsonSerializer.SerializeAsync<Candidate[]>(fs, candidates);
-               Console.WriteLine("Data has been saved to file");
+                await JsonSerializer.SerializeAsync<List<Candidate>>(fs, candidates);
+                Console.WriteLine("Data has been saved to file");
             }
             using (FileStream fs = new FileStream("Candidates.json", FileMode.Open))
             {
-               Candidate[]? candidates2 = await JsonSerializer.DeserializeAsync<Candidate[]>(fs);
-               for (int i = 0; i < candidates2.Length; i++)
-               {
-                   Console.WriteLine(candidates2[i].ToString());
-               }
-             
+                Candidate[]? candidates2 = await JsonSerializer.DeserializeAsync<Candidate[]>(fs);
+                for (int i = 0; i < candidates2.Length; i++)
+                {
+                    Console.WriteLine(candidates2[i].ToString());
+                }
+
             }
 
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Candidate[]));
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Candidate>));
             using (FileStream fs = new FileStream("Candidates.xml", FileMode.Create))
             {
                 xmlSerializer.Serialize(fs, candidates);

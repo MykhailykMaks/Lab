@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_10
+namespace Lab_1_1_
 {
     public class Candidate
     {
@@ -30,8 +30,8 @@ namespace Lab_10
         }
         public string PIB
         {
-             get { return pib; }
-             set { pib = value; }
+            get { return pib; }
+            set { pib = value; }
         }
         public string DateOfBirth
         {
@@ -47,25 +47,6 @@ namespace Lab_10
         {
             get { return popularityIndex; }
             set { popularityIndex = value; }
-        }
-        public static void Top3ByPopularity(Candidate[] candidates)
-        {
-            Array.Sort(candidates, (a, b) => b.PopularityIndex.CompareTo(a.PopularityIndex));
-            for (int i = 0; i < 3; i++)
-            {
-                Console.WriteLine(candidates[i].ToString());
-            }
-        }
-        public static void PartiasWhoSendCandidates(Candidate[] candidates)
-        {
-            for(int i = 0; i < candidates.Length; i++)
-            {
-                if (candidates[i] != null)
-                {
-                    Console.WriteLine($"Partia: {candidates[i].partia}");
-
-                }
-            }
         }
         public override string ToString()
         {

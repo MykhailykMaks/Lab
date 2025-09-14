@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_10
+namespace Lab_1_1_
 {
     internal class Create
     {
         private static Random random = new Random();
         public static string[] lastNames = { "Шевченко", "Ковальчук", "Ткаченко", "Бондаренко", "Мельник" };
         public static string[] names = { "Олександр", "Ірина", "Микита", "Ганна", "Денис" };
-        public static string[] fathersNames = { "Вікторович", "Сергіївна", "Андрійович", "Олексіївна" ,"Юрійович" };
+        public static string[] fathersNames = { "Вікторович", "Сергіївна", "Андрійович", "Олексіївна", "Юрійович" };
         public static string[] parties = { "Партія А", "Партія Б", "Партія В", "Партія Г", "Партія Д" };
         public static string[] datesOfBirth = { "01.01.1980", "15.05.1990", "20.10.1985", "30.03.1975", "25.12.2000" };
         public static int[] popularityIndexes = { 100, 200, 300, 400, 500 };

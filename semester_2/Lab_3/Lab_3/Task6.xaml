@@ -1,0 +1,41 @@
+﻿<Window x:Class="Lab_3.Task6"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab_3"
+        mc:Ignorable="d"
+        Title="Завдання 6" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <WrapPanel Grid.Column="0" Margin="5" Background="#FFE6E6E6">
+            <WrapPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="3"/>
+                    <Setter Property="Padding" Value="10,5"/>
+                    <Setter Property="MinWidth" Value="60"/>
+                </Style>
+            </WrapPanel.Resources>
+            <Button Content="Navy" Background="Navy" Foreground="White"/>
+            <Button Content="Blue" Background="Blue" Foreground="White"/>
+            <Button Content="Aqua" Background="Aqua"/>
+            <Button Content="Teal" Background="Teal" Foreground="White"/>
+            <Button Content="Olive" Background="Olive" Foreground="White"/>
+            <Button Content="Green" Background="Green" Foreground="White"/>
+            <Button Content="Lime" Background="Lime"/>
+            <Button Content="Yellow" Background="Yellow"/>
+            <Button Content="Orange" Background="Orange"/>
+            <Button Content="Red" Background="Red" Foreground="White"/>
+            <Button Content="Maroon" Background="Maroon" Foreground="White"/>
+            <Button Content="Fuchsia" Background="Fuchsia"/>
+            <Button Content="Purple" Background="Purple" Foreground="White"/>
+            <Button Content="Black" Background="Black" Foreground="White"/>
+            <Button Content="Silver" Background="Silver"/>
+            <Button Content="Gray" Background="Gray"/>
+            <Button Content="White" Background="White"/>
+        </WrapPanel>
+    </Grid>
+</Window>

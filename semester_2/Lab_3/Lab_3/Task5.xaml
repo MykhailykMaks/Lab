@@ -1,0 +1,33 @@
+﻿<Window x:Class="Lab_3.Task5"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab_3"
+        mc:Ignorable="d"
+        Title="Task5" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="10,10,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Вага у фунтах:" Grid.Column="0" VerticalAlignment="Center" FontSize="16" FontWeight="Bold"/>
+            <TextBox x:Name="InputText" Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center" FontSize="24" TextAlignment="Right" Height="65"/>
+        </Grid>
+        <Button Grid.Row="1" Content="Розрахувати" Margin="10,10,10,299" FontSize="18" FontWeight="Bold" Padding="5" Click="CalculateClick"  Grid.RowSpan="2"/>
+        <TextBlock x:Name="ResultText" Grid.Row="2" Text="Результат:" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">
+            <TextBlock.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#FF6DD3A8" Offset="0.0" />
+                    <GradientStop Color="#FFC6E099" Offset="1.0" />
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+    </Grid>
+</Window>

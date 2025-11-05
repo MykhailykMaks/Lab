@@ -1,0 +1,47 @@
+﻿<Window x:Class="Lab_4_1_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab_4_1_"
+        mc:Ignorable="d"
+        Title="Calculator" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="LastCalculations" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,5,10,10"></TextBlock>
+        <TextBlock x:Name="Calculations" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,5,10,10"></TextBlock>
+        <Button Content="CE" Click="DeleteNowCalculations" Grid.Row="2" Grid.Column="0" Margin="5" FontSize="35" ></Button>
+        <Button Content="C" Click="DeleteAllCalculations" Grid.Row="2" Grid.Column="1" Margin="5" FontSize="35"></Button>
+        <Button Content="&lt;" Click="DeleteLastNumber" Grid.Row="2" Grid.Column="2" Margin="5" FontSize="35"></Button>
+        <Button Content="/" Click="Divide" Grid.Row="2" Grid.Column="3" Margin="5" FontSize="35"></Button>
+        <Button Content="7" Click="Add7" Grid.Row="3" Grid.Column="0" Margin="5" FontSize="35" ></Button>
+        <Button Content="8" Click="Add8" Grid.Row="3" Grid.Column="1" Margin="5" FontSize="35"></Button>
+        <Button Content="9" Click="Add9" Grid.Row="3" Grid.Column="2" Margin="5" FontSize="35"></Button>
+        <Button Content="*" Click="Multiply" Grid.Row="3" Grid.Column="3" Margin="5" FontSize="35"></Button>
+        <Button Content="4" Click="Add4" Grid.Row="4" Grid.Column="0" Margin="5" FontSize="35" ></Button>
+        <Button Content="5" Click="Add5" Grid.Row="4" Grid.Column="1" Margin="5" FontSize="35"></Button>
+        <Button Content="6" Click="Add6" Grid.Row="4" Grid.Column="2" Margin="5" FontSize="35"></Button>
+        <Button Content="-" Click="Minus" Grid.Row="4" Grid.Column="3" Margin="5" FontSize="35"></Button>
+        <Button Content="1" Click="Add1" Grid.Row="5" Grid.Column="0" Margin="5" FontSize="35" ></Button>
+        <Button Content="2" Click="Add2" Grid.Row="5" Grid.Column="1" Margin="5" FontSize="35"></Button>
+        <Button Content="3" Click="Add3" Grid.Row="5" Grid.Column="2" Margin="5" FontSize="35"></Button>
+        <Button Content="+" Click="Plus" Grid.Row="5" Grid.Column="3" Margin="5" FontSize="35"></Button>
+        <Button Content="." Click="AddPoint" Grid.Row="6" Grid.Column="0" Margin="5" FontSize="35" ></Button>
+        <Button Content="0" Click="Add0" Grid.Row="6" Grid.Column="1" Margin="5" FontSize="35"></Button>
+        <Button Content="=" Click="Equal" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Margin="5" FontSize="35"></Button>
+    </Grid>
+</Window>

@@ -141,7 +141,7 @@ namespace Lab_4_1_
                 isResultOnDisplay = false;
             }
             string currentText = Calculations.Text;
-            if (currentText.EndsWith(" "))
+            if (currentText.EndsWith(" ") || currentText.EndsWith(","))
             {
                 return;
             }
@@ -155,7 +155,7 @@ namespace Lab_4_1_
                 isResultOnDisplay = false;
             }
             string currentText = Calculations.Text;
-            if (currentText.EndsWith(" "))
+            if (currentText.EndsWith(" ") || currentText.EndsWith(","))
             {
                 return;
             }
@@ -165,16 +165,25 @@ namespace Lab_4_1_
         private void Minus(object sender, RoutedEventArgs e)
         {
             if (isResultOnDisplay)
-            {
                 isResultOnDisplay = false;
-            }
-            string currentText = Calculations.Text;
-            if (currentText.EndsWith(" "))
+            string t = Calculations.Text;
+            if (string.IsNullOrEmpty(t))
             {
+                Calculations.Text = "-";
                 return;
             }
-            Calculations.Text += " - ";
+
+            if (t.EndsWith(" + ") || t.EndsWith(" * ") || t.EndsWith(" / ") || t.EndsWith(" - "))
+            {
+                Calculations.Text += "-";
+                return;
+            }
+            if (!t.EndsWith(" ") && !t.EndsWith(","))
+            {
+                Calculations.Text += " - ";
+            }
         }
+
 
         private void Plus(object sender, RoutedEventArgs e)
         {
@@ -183,7 +192,7 @@ namespace Lab_4_1_
                 isResultOnDisplay = false;
             }
             string currentText = Calculations.Text;
-            if (currentText.EndsWith(" "))
+            if (currentText.EndsWith(" ") || currentText.EndsWith(","))
             {
                 return;
             }
@@ -192,68 +201,46 @@ namespace Lab_4_1_
 
         private void Equal(object sender, RoutedEventArgs e)
         {
-            string allCalculate = Calculations.Text;
-            string[] parts;
+            string all = Calculations.Text;
             string operation = "";
-            if (allCalculate.Contains(" + "))
-            {
-                parts = allCalculate.Split(new string[] { " + " }, StringSplitOptions.None);
-                operation = "+";
-            }
-            else if (allCalculate.Contains(" - "))
-            {
-                parts = allCalculate.Split(new string[] { " - " }, StringSplitOptions.None);
-                operation = "-";
-            }
-            else if (allCalculate.Contains(" * "))
-            {
-                parts = allCalculate.Split(new string[] { " * " }, StringSplitOptions.None);
-                operation = "*";
-            }
-            else if (allCalculate.Contains(" / "))
-            {
-                parts = allCalculate.Split(new string[] { " / " }, StringSplitOptions.None);
-                operation = "/";
-            }
-            else
-            {
-                return;
-            }
-            if (parts.Length != 2)
-            {
-                Calculations.Text = "Error!!";
-                return;
-            }
-            if(double.TryParse(parts[0], NumberStyles.Any, CultureInfo.InvariantCulture, out double symbol1) &&
-               double.TryParse(parts[1], NumberStyles.Any, CultureInfo.InvariantCulture, out double symbol2))
-            {
-                double result = 0;
-                switch (operation)
-                {
-                    case "+":
-                        result = symbol1 + symbol2;
-                        break;
-                    case "-":
-                        result = symbol1 - symbol2;
-                        break;
-                    case "*":
-                        result = symbol1 * symbol2;
-                        break;
-                    case "/":
-                        if (symbol2 == 0)
-                        {
-                            Calculations.Text = "Error!!(Div by 0)";
-                            return;
-                        }
-                        result = symbol1 / symbol2;
-                        break;
-                }
-                LastCalculations.Text = allCalculate;
-                Calculations.Text = result.ToString();
-                isResultOnDisplay = true;
-            }
-        }
+            int opIndex = -1;
 
+            foreach (string operate in new[] { " + ", " - ", " * ", " / " })
+            {
+                int idx = all.IndexOf(operate, 1);
+                if (idx > 0)
+                {
+                    operation = operate.Trim();
+                    opIndex = idx;
+                    break;
+                }
+            }
+            if (opIndex == -1) return;
+            string left = all.Substring(0, opIndex).Trim();
+            string right = all.Substring(opIndex + 3).Trim();
+            double.TryParse(left, NumberStyles.Any, CultureInfo.CurrentCulture, out double a);
+            double.TryParse(right, NumberStyles.Any, CultureInfo.CurrentCulture, out double b);
+            double result = 0;
+
+            switch (operation)
+            {
+                case "+": result = a + b; break;
+                case "-": result = a - b; break;
+                case "*": result = a * b; break;
+                case "/":
+                    if (b == 0)
+                    {
+                        Calculations.Text = "Error!!(Div by 0)";
+                        return;
+                    }
+                    result = a / b;
+                    break;
+            }
+
+                LastCalculations.Text = all;
+                Calculations.Text = result.ToString(CultureInfo.CurrentCulture);
+                isResultOnDisplay = true;
+        }
         private void DeleteAllCalculations(object sender, RoutedEventArgs e)
         {
             isResultOnDisplay = false;
@@ -269,28 +256,32 @@ namespace Lab_4_1_
 
         private void AddPoint(object sender, RoutedEventArgs e)
         {
-            string currentText = Calculations.Text;
-            string currentNumber = "";
+            string dec = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+            string text = Calculations.Text ?? "";
             if (isResultOnDisplay)
             {
+                if (!Calculations.Text.Contains(dec))
+                {
+                    Calculations.Text += dec;
+                }
+
                 isResultOnDisplay = false;
                 return;
             }
-            if (Calculations.Text.EndsWith(" ") || Calculations.Text.EndsWith("."))
+            if (text.EndsWith(" "))
             {
                 return;
             }
-            int lastOperationIndex = currentText.LastIndexOf(' ');
-            if (lastOperationIndex == -1)
-            {
-                currentNumber = currentText;
-            }
+            int opIndex = text.LastIndexOf(' ');
+            string currentNumber = opIndex == -1 ? text : text.Substring(opIndex + 1);
+            if (currentNumber.Contains(dec))
+                return;
+            if (string.IsNullOrEmpty(currentNumber))
+                Calculations.Text += "0" + dec;
             else
-            {
-                currentNumber = currentText.Substring(lastOperationIndex + 1);
-            }
-            Calculations.Text += ".";
+                Calculations.Text += dec;
         }
+
         private void DeleteLastNumber(object sender, RoutedEventArgs e)
         {
             string currentText = Calculations.Text;

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_4_1_"
         mc:Ignorable="d"
-        Title="Calculator" Height="450" Width="800">
+        Title="Calculator" Height="450" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -22,8 +22,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="LastCalculations" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,5,10,10"></TextBlock>
-        <TextBlock x:Name="Calculations" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,5,10,10"></TextBlock>
+        <TextBlock x:Name="LastCalculations" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,5,10,10" TextAlignment="Right" FontSize ="15"></TextBlock>
+        <TextBlock x:Name="Calculations" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,5,10,10" TextAlignment="Right" FontSize ="30"></TextBlock>
         <Button Content="CE" Click="DeleteNowCalculations" Grid.Row="2" Grid.Column="0" Margin="5" FontSize="35" ></Button>
         <Button Content="C" Click="DeleteAllCalculations" Grid.Row="2" Grid.Column="1" Margin="5" FontSize="35"></Button>
         <Button Content="&lt;" Click="DeleteLastNumber" Grid.Row="2" Grid.Column="2" Margin="5" FontSize="35"></Button>

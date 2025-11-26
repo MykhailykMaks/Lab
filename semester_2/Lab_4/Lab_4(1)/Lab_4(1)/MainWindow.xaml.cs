@@ -141,7 +141,7 @@ namespace Lab_4_1_
                 isResultOnDisplay = false;
             }
             string currentText = Calculations.Text;
-            if (currentText.EndsWith(" ") || currentText.EndsWith(","))
+            if (currentText.EndsWith(" ") || currentText.EndsWith(",") || currentText.EndsWith("-"))
             {
                 return;
             }
@@ -155,7 +155,7 @@ namespace Lab_4_1_
                 isResultOnDisplay = false;
             }
             string currentText = Calculations.Text;
-            if (currentText.EndsWith(" ") || currentText.EndsWith(","))
+            if (currentText.EndsWith(" ") || currentText.EndsWith(",") || currentText.EndsWith("-"))
             {
                 return;
             }
@@ -175,7 +175,11 @@ namespace Lab_4_1_
 
             if (t.EndsWith(" + ") || t.EndsWith(" * ") || t.EndsWith(" / ") || t.EndsWith(" - "))
             {
-                Calculations.Text += "-";
+                    Calculations.Text += "-";
+                    return;
+            }
+            if (t.EndsWith("-"))
+            {
                 return;
             }
             if (!t.EndsWith(" ") && !t.EndsWith(","))
@@ -192,7 +196,7 @@ namespace Lab_4_1_
                 isResultOnDisplay = false;
             }
             string currentText = Calculations.Text;
-            if (currentText.EndsWith(" ") || currentText.EndsWith(","))
+            if (currentText.EndsWith(" ") || currentText.EndsWith(",") || currentText.EndsWith("-"))
             {
                 return;
             }

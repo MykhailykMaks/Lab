@@ -44,8 +44,8 @@
                 <TextBlock Text="грн" FontStyle="Normal" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" Height="15"></TextBlock>
                 <RadioButton x:Name="Count" Content="Кількість" IsChecked="True" GroupName="Calculate" Margin="5" Grid.Row="2" Grid.Column="0" Checked="CalculateType_Checked" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="10" Foreground="DarkGreen"/>
                 <RadioButton x:Name="Sum" Content="Сума" IsChecked="False" GroupName="Calculate" Margin="5" Grid.Row="3" Grid.Column="0" Checked="CalculateType_Checked" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="10" Foreground="DarkGreen"/>
-                <TextBox x:Name="CountTextBox" TextChanged="GasTextBox_TextChanged" Margin="5" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="100" IsEnabled="True" FontStyle="Normal" VerticalAlignment="Center" Height="20"/>
-                <TextBox x:Name="SumTextBox" TextChanged="GasTextBox_TextChanged" Margin="5" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="100" IsEnabled="False"  FontStyle="Normal" VerticalAlignment="Center" Height="20"/>
+                <TextBox x:Name="CountTextBox" TextChanged="GasTextBox_TextChanged" GotFocus="CountTextBox_GotFocus" LostFocus="CountTextBox_LostFocus" Margin="5" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="100" IsEnabled="True" FontStyle="Normal" VerticalAlignment="Center" Height="20"/>
+                <TextBox x:Name="SumTextBox" TextChanged="GasTextBox_TextChanged" GotFocus="SumTextBox_GotFocus" LostFocus="SumTextBox_LostFocus" Margin="5" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="100" IsEnabled="False"  FontStyle="Normal" VerticalAlignment="Center" Height="20"/>
                 <TextBlock Text="літрів" FontStyle="Normal" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="2" Height="15"></TextBlock>
                 <TextBlock Text="грн" FontStyle="Normal" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="3" Height="15"></TextBlock>
                 <GroupBox x:Name="GasTotalGroupBox" Header="До oплати:" FontStyle="Italic" FontSize="10" Foreground="DarkGreen"  BorderBrush="LightGreen" BorderThickness="1" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" Margin="3">
@@ -120,8 +120,8 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="+" FontStyle="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.RowSpan="2" FontSize="30" Foreground="Black" Height="50"></TextBlock>
-                <TextBlock x:Name="GasPaymentText" FontStyle="Normal" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="1" FontSize="20" Foreground="Black" Height="50" Margin="10"></TextBlock>
-                <TextBlock x:Name="CafePaymentText" FontStyle="Normal" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" FontSize="20" Foreground="Black" Height="50" Margin="10"></TextBlock>
+                <TextBlock x:Name="GasPaymentText" FontStyle="Normal" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="1" FontSize="20" Foreground="Black" Height="30" Margin="10"></TextBlock>
+                <TextBlock x:Name="CafePaymentText" FontStyle="Normal" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" FontSize="20" Foreground="Black" Height="30" Margin="10"></TextBlock>
                 <TextBlock x:Name="TotalSum" Text="" Margin="10" FontStyle="Normal" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" FontSize="30" Foreground="Black" Height="100"></TextBlock>
                 <Button x:Name="CalculateSum" Content="Порахувати" Margin="5" FontStyle="Normal" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" FontSize="16" Foreground="Black" Height="60" Width="100" Click="CalculateSum_Click"></Button>
             </Grid>

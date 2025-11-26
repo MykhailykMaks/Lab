@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Lab_4_2_ 
 {
@@ -31,6 +32,43 @@ namespace Lab_4_2_
         {
             InitializeComponent();
             SetupApplication();
+        }
+        private void CountTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (CountTextBox.Text == "0")
+            {
+                CountTextBox.Text = "";
+                CountTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void CountTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(CountTextBox.Text))
+            {
+                CountTextBox.Text = "0";
+                CountTextBox.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void SumTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (SumTextBox.Text == "0")
+            {
+                SumTextBox.Text = "";
+                SumTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void SumTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(SumTextBox.Text))
+            {
+                SumTextBox.Text = "0";
+                SumTextBox.Foreground = Brushes.Gray;
+            }
         }
 
         private void SetupApplication()
@@ -85,16 +123,21 @@ namespace Lab_4_2_
         {
             if (TotalCostForOil == null) return;
             double.TryParse(costForLiter.Text, out double price);
-            if (price == 0) return;
+            if (price == 0 || price < 0 ) return;
             if (Count.IsChecked == true)
             {
                 int.TryParse(CountTextBox.Text, out int liters);
+                if(liters == 0 || liters < 0)
+                {
+                    return;
+                }
                 double total = price * liters;
                 TotalCostForOil.Text = total.ToString("F2");
             }
             else
             {
                 double.TryParse(SumTextBox.Text.Replace(",", "."), out double sum);
+                if (sum < 0) sum = 0;
                 double totalLiters = sum / price;
                 TotalCostForOil.Text = totalLiters.ToString("F2");
             }
@@ -136,32 +179,28 @@ namespace Lab_4_2_
         {
             if (TotalCostInCafe == null) return;
             double total = 0;
+            int GetValidCount(TextBox tb)
+            {
+                if (int.TryParse(tb.Text, out int count))
+                {
+                    return count < 0 ? 0 : count;
+                }
+                return 0;
+            }
             if (hotdogCheckBox.IsChecked == true)
-            {
-                int.TryParse(CountOfhotdogsBox.Text, out int count);
-                total += cafePrices["hotdogCheckBox"] * count;
-            }
-            if (hamburgerCheckBox.IsChecked == true)
-            {
-                int.TryParse(CountOfhamburgersBox.Text, out int count);
-                total += cafePrices["hamburgerCheckBox"] * count;
-            }
-            if (friesCheckBox.IsChecked == true)
-            {
-                int.TryParse(CountOffriesBox.Text, out int count);
-                total += cafePrices["friesCheckBox"] * count;
-            }
-            if (cokeCheckBox.IsChecked == true)
-            {
-                int.TryParse(CountOfcokesBox.Text, out int count);
-                total += cafePrices["cokeCheckBox"] * count;
-            }
-            if (coffeeCheckBox.IsChecked == true)
-            {
-                int.TryParse(CountOfcoffeesBox.Text, out int count);
-                total += cafePrices["coffeeCheckBox"] * count;
-            }
+                total += cafePrices["hotdogCheckBox"] * GetValidCount(CountOfhotdogsBox);
 
+            if (hamburgerCheckBox.IsChecked == true)
+                total += cafePrices["hamburgerCheckBox"] * GetValidCount(CountOfhamburgersBox);
+
+            if (friesCheckBox.IsChecked == true)
+                total += cafePrices["friesCheckBox"] * GetValidCount(CountOffriesBox);
+
+            if (cokeCheckBox.IsChecked == true)
+                total += cafePrices["cokeCheckBox"] * GetValidCount(CountOfcokesBox);
+
+            if (coffeeCheckBox.IsChecked == true)
+                total += cafePrices["coffeeCheckBox"] * GetValidCount(CountOfcoffeesBox);
             TotalCostInCafe.Text = total.ToString("F2");
         }
 

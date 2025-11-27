@@ -1,0 +1,31 @@
+﻿<Window x:Class="Lab_5.FacebookAuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Facebook connection error" 
+        Height="250" Width="400"
+        Background="#F4F2E9"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="20">
+        <StackPanel VerticalAlignment="Center">
+
+            <TextBlock Text="Facebook connection error!!!"
+                       FontSize="18" FontWeight="Bold" 
+                       Foreground="#D32F2F" 
+                       HorizontalAlignment="Center" Margin="0,0,0,15"/>
+
+            <TextBlock Text="Facebook servers are not responding. Please try logging in with Facebook later or use regular registration."
+                       TextAlignment="Center" 
+                       TextWrapping="Wrap"
+                       Foreground="#333333"
+                       Margin="0,0,0,25"/>
+
+            <Button Content="Exit" 
+                    Background="#5D4037" 
+                    Foreground="White"
+                    Click="CloseButton_Click"
+                    Padding="10,5"
+                    Width="100"/>
+        </StackPanel>
+    </Grid>
+</Window>

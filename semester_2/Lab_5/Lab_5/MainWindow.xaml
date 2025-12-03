@@ -6,29 +6,48 @@
         xmlns:local="clr-namespace:Lab_5"
         d:DataContext="{d:DesignInstance Type=local:AuthViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="410">
+        Title="Registration" Height="650" Width="420" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+
     <Grid Background="#F4F2E9">
-        <Border Width="380" 
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center"
-            Background="#F4F2E9" 
-            CornerRadius="10"
-            Padding="10">
-            <StackPanel DataContext="{Binding}">
+        <Border Width="380" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Background="#F4F2E9" CornerRadius="10" Padding="10">
+            <StackPanel>
                 <TextBlock Text="Registration" FontSize="28" FontWeight="Bold" Foreground="#5D4037" Margin="0,0,0,10" HorizontalAlignment="Center" FontFamily="Palatino Linotype"/>
-                <TextBlock Text="{Binding Message}" Foreground="#D32F2F" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="0,0,0,5"/>
-                
+                <TextBlock Text="{Binding Message}" Foreground="#D32F2F" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="0,0,0,5" TextWrapping="Wrap"/>
+
                 <TextBlock Text="Username:" Foreground="#333333" Margin="0,5,0,1" FontSize="14" FontStyle="Italic"/>
                 <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource LibraryTextBoxStyle}"/>
-                
+
                 <TextBlock Text="Email:" Foreground="#333333" Margin="0,5,0,1" FontSize="14" FontStyle="Italic"/>
                 <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource LibraryTextBoxStyle}"/>
 
                 <TextBlock Text="Password:" Foreground="#333333" Margin="0,5,0,1" FontSize="14" FontStyle="Italic"/>
-                <PasswordBox x:Name="PasswordInput" Height="25"/>
-                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="30"/>
+                    </Grid.ColumnDefinitions>
+
+                    <PasswordBox x:Name="PasswordInput" 
+                                 PasswordChanged="PasswordInput_PasswordChanged"
+                                 Visibility="{Binding PasswordVisibility}"
+                                 Height="25"/>
+
+                    <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" 
+                             Visibility="{Binding TextBoxVisibility}"
+                             TextChanged="VisiblePassword_TextChanged"
+                             Height="25"/>
+
+                    <Button Grid.Column="1" Command="{Binding TogglePasswordCommand}" Background="Transparent" BorderBrush="Transparent" Margin="2,0,0,0">
+                        <TextBlock Text="👁" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Button>
+                </Grid>
+
                 <TextBlock Text="Age:" Foreground="#333333" Margin="0,5,0,1" FontSize="14" FontStyle="Italic"/>
-                <TextBox x:Name ="AgeTextBox" GotFocus="AgeTextBox_GotFocus" LostFocus="AgeTextBox_LostFocus" Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource LibraryTextBoxStyle}" PreviewTextInput="NumberValidationTextBox" MaxLength="3" />
+                <TextBox x:Name ="AgeTextBox" GotFocus="AgeTextBox_GotFocus" LostFocus="AgeTextBox_LostFocus" 
+                         Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}" 
+                         Style="{StaticResource LibraryTextBoxStyle}" 
+                         PreviewTextInput="NumberValidationTextBox" MaxLength="3" />
 
                 <TextBlock Text="Gender:" Foreground="#333333" Margin="0,5,0,1" FontSize="14" FontStyle="Italic"/>
                 <ComboBox SelectedItem="{Binding Gender, UpdateSourceTrigger=PropertyChanged}" Foreground="#333333" Padding="5" BorderBrush="#DDDDDD" Background="White">
@@ -36,31 +55,17 @@
                     <ComboBoxItem Content="Female"/>
                 </ComboBox>
 
-                <Button Content="Register " 
+                <Button Content="Register" 
                     Command="{Binding RegisterCommand}" 
-                    CommandParameter="{Binding ElementName=PasswordInput, Path=Password}" 
                     Style="{StaticResource RoundedButtonStyle}"
-                    Margin="0,20,0,5"
-                    Background="#00796B"
-                    Foreground="LightGray"
-                    Padding="5"
-                    FontSize="20"
-                    FontWeight="SemiBold"
-                    FontFamily="Palatino Linotype"
-                    Height="40"/>
+                    Margin="0,20,0,5" Background="#00796B" Foreground="LightGray"
+                    Padding="5" FontSize="20" FontWeight="SemiBold" Height="40" FontFamily="Palatino Linotype"/>
 
-                <Button Content="Sign in  (if you have account)" 
-                    Command="{Binding LoginCommand}" 
-                    CommandParameter="{Binding ElementName=PasswordInput, Path=Password}"
+                <Button Content="Sign in (if you have account)" 
+                    Command="{Binding NavigateToLoginCommand}" 
                     Style="{StaticResource RoundedButtonStyle}"
-                    Margin="0,5,0,0"
-                    Background="#8D6E63"
-                    Foreground="LightGray"
-                    BorderBrush="Transparent"
-                    Height="30"
-                    FontSize="16"
-                    FontWeight="SemiBold"
-                    FontFamily="Palatino Linotype"/>
+                    Margin="0,5,0,0" Background="#8D6E63" Foreground="LightGray"
+                    BorderBrush="Transparent" Height="30" FontSize="16" FontWeight="SemiBold" FontFamily="Palatino Linotype"/>
 
                 <Separator Margin="0,10,0,5" Height="7" Background="DarkGray"/>
 
@@ -74,15 +79,10 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Button Grid.Column="0" Command="{Binding GoogleLoginCommand}" Style="{StaticResource SocialButtonStyle}" Background="White" BorderBrush="#CCCCCC" Height="60" Width="60" HorizontalAlignment="Right">
-                                <Button.Content>
-                                    <Image Source="pack://application:,,,/Resources/google.png" Width="60" Height="60"/>
-                                </Button.Content>
+                                <Image Source="pack://application:,,,/Resources/google.png" Width="60" Height="60"/>
                             </Button>
-
                             <Button Grid.Column="2" Command="{Binding FacebookLoginCommand}" Style="{StaticResource SocialButtonStyle}" Background="White" BorderBrush="#CCCCCC" Height="60" Width="60" HorizontalAlignment="Left">
-                                <Button.Content>
-                                    <Image Source="pack://application:,,,/Resources/facebook.jpg" Width="60" Height="60"/>
-                                </Button.Content>
+                                <Image Source="pack://application:,,,/Resources/facebook.jpg" Width="60" Height="60"/>
                             </Button>
                         </Grid>
                     </StackPanel>

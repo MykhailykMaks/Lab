@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_5"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="650" Width="410">
+        Title="LoginWindow" Height="500" Width="410" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid Background="#F4F2E9">
-        <Border Width="380" 
-        HorizontalAlignment="Center" 
-        VerticalAlignment="Center"
-        Background="#F4F2E9" 
-        CornerRadius="10"
-        Padding="10">
-            <StackPanel DataContext="{Binding}">
+        <Border Width="380" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Background="#F4F2E9" CornerRadius="10" Padding="10">
+            <StackPanel>
+
+                <Button Command="{Binding NavigateToRegisterCommand}" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" Margin="0,-10,0,10">
+                    <TextBlock Text="← Back to Register" FontSize="14" Foreground="#8D6E63" TextDecorations="Underline"/>
+                </Button>
+
                 <TextBlock Text="Sign in" FontSize="28" FontWeight="Bold" Foreground="#5D4037" Margin="0,0,0,10" HorizontalAlignment="Center" FontFamily="Palatino Linotype"/>
                 <TextBlock Text="{Binding Message}" Foreground="#D32F2F" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="0,0,0,5"/>
 
@@ -21,20 +22,31 @@
                 <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource LibraryTextBoxStyle}"/>
 
                 <TextBlock Text="Password:" Foreground="#333333" Margin="0,5,0,1" FontSize="14" FontStyle="Italic"/>
-                <PasswordBox x:Name="PasswordInput" Height="25"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="30"/>
+                    </Grid.ColumnDefinitions>
 
-                <Button Content="Sign" 
-                Command="{Binding RegisterCommand}" 
-                CommandParameter="{Binding ElementName=PasswordInput, Path=Password}" 
-                Style="{StaticResource RoundedButtonStyle}"
-                Margin="0,20,0,5"
-                Background="#00796B"
-                Foreground="LightGray"
-                Padding="5"
-                FontSize="20"
-                FontWeight="SemiBold"
-                FontFamily="Palatino Linotype"
-                Height="40"/>
+                    <PasswordBox x:Name="LoginPasswordInput" 
+                                 PasswordChanged="LoginPasswordInput_PasswordChanged"
+                                 Visibility="{Binding PasswordVisibility}"
+                                 Height="25"/>
+
+                    <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" 
+                             Visibility="{Binding TextBoxVisibility}"
+                             Height="25"/>
+
+                    <Button Grid.Column="1" Command="{Binding TogglePasswordCommand}" Background="Transparent" BorderBrush="Transparent" Margin="2,0,0,0">
+                        <TextBlock Text="👁" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Button>
+                </Grid>
+
+                <Button Content="Sign In" 
+                    Command="{Binding PerformLoginCommand}" 
+                    Style="{StaticResource RoundedButtonStyle}"
+                    Margin="0,20,0,5" Background="#00796B" Foreground="LightGray"
+                    Padding="5" FontSize="20" FontWeight="SemiBold" Height="40" FontFamily="Palatino Linotype"/>
 
                 <Separator Margin="0,10,0,5" Height="7" Background="DarkGray"/>
 
@@ -48,15 +60,10 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Button Grid.Column="0" Command="{Binding GoogleLoginCommand}" Style="{StaticResource SocialButtonStyle}" Background="White" BorderBrush="#CCCCCC" Height="60" Width="60" HorizontalAlignment="Right">
-                                <Button.Content>
-                                    <Image Source="pack://application:,,,/Resources/google.png" Width="60" Height="60"/>
-                                </Button.Content>
+                                <Image Source="pack://application:,,,/Resources/google.png" Width="60" Height="60"/>
                             </Button>
-
                             <Button Grid.Column="2" Command="{Binding FacebookLoginCommand}" Style="{StaticResource SocialButtonStyle}" Background="White" BorderBrush="#CCCCCC" Height="60" Width="60" HorizontalAlignment="Left">
-                                <Button.Content>
-                                    <Image Source="pack://application:,,,/Resources/facebook.jpg" Width="60" Height="60"/>
-                                </Button.Content>
+                                <Image Source="pack://application:,,,/Resources/facebook.jpg" Width="60" Height="60"/>
                             </Button>
                         </Grid>
                     </StackPanel>
@@ -64,5 +71,4 @@
             </StackPanel>
         </Border>
     </Grid>
-
 </Window>

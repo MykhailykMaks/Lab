@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -34,58 +36,48 @@ namespace Lab_5
         private string _password;
         private int _age;
         private string _gender;
+        private string _message;
+
+        private bool _isPasswordVisible;
+        public bool IsPasswordVisible
+        {
+            get => _isPasswordVisible;
+            set
+            {
+                _isPasswordVisible = value;
+                OnPropertyChanged(nameof(IsPasswordVisible));
+                OnPropertyChanged(nameof(PasswordVisibility));
+                OnPropertyChanged(nameof(TextBoxVisibility));
+            }
+        }
+
+        public Visibility PasswordVisibility => IsPasswordVisible ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility TextBoxVisibility => IsPasswordVisible ? Visibility.Visible : Visibility.Collapsed;
+
         public string Username
         {
             get => _username;
-            set
-            {
-                if (_username != value)
-                {
-                    _username = value;
-                    OnPropertyChanged(nameof(Username));
-                    CommandManager.InvalidateRequerySuggested();
-                }
-            }
+            set { _username = value; OnPropertyChanged(nameof(Username)); }
         }
+
         public string Email
         {
             get => _email;
-            set
-            {
-                if (_email != value)
-                {
-                    _email = value;
-                    OnPropertyChanged(nameof(Email));
-                    CommandManager.InvalidateRequerySuggested();
-                }
-            }
+            set { _email = value; OnPropertyChanged(nameof(Email)); }
         }
+
         public int Age
         {
             get => _age;
-            set
-            {
-                if (_age != value)
-                {
-                    _age = value;
-                    OnPropertyChanged(nameof(Age));
-                    CommandManager.InvalidateRequerySuggested();
-                }
-            }
+            set { _age = value; OnPropertyChanged(nameof(Age)); }
         }
+
         public string Gender
         {
             get => _gender;
-            set
-            {
-                if (_gender != value)
-                {
-                    _gender = value;
-                    OnPropertyChanged(nameof(Gender));
-                    CommandManager.InvalidateRequerySuggested();
-                }
-            }
+            set { _gender = value; OnPropertyChanged(nameof(Gender)); }
         }
+
         public string Password
         {
             get => _password;
@@ -95,76 +87,123 @@ namespace Lab_5
                 {
                     _password = value;
                     OnPropertyChanged(nameof(Password));
-                    CommandManager.InvalidateRequerySuggested();
                 }
             }
         }
-        public string Message { get; private set; }
-        private void SetMessage(string value)
+
+        public string Message
         {
-            Message = value;
-            OnPropertyChanged(nameof(Message));
+            get => _message;
+            private set { _message = value; OnPropertyChanged(nameof(Message)); }
         }
 
+
         public event EventHandler LoginWindowRequested;
+        public event EventHandler RegisterWindowRequested;
         public event EventHandler GoogleAuthRequested;
         public event EventHandler FacebookAuthRequested;
+
+
         public ICommand RegisterCommand { get; }
-        public ICommand LoginCommand { get; }
+        public ICommand NavigateToLoginCommand { get; }
+        public ICommand NavigateToRegisterCommand { get; }
+        public ICommand PerformLoginCommand { get; }
         public ICommand GoogleLoginCommand { get; }
         public ICommand FacebookLoginCommand { get; }
+        public ICommand TogglePasswordCommand { get; }
+
         public AuthViewModel()
         {
             RegisterCommand = new RelayCommand(ExecuteRegister, CanExecuteRegister);
-            LoginCommand = new RelayCommand(ExecuteLogin, CanExecuteLogin);
+
+
+            NavigateToLoginCommand = new RelayCommand(p => LoginWindowRequested?.Invoke(this, EventArgs.Empty));
+            NavigateToRegisterCommand = new RelayCommand(p => RegisterWindowRequested?.Invoke(this, EventArgs.Empty));
+
+
+            PerformLoginCommand = new RelayCommand(ExecuteLogin);
+
             GoogleLoginCommand = new RelayCommand(p => GoogleAuthRequested?.Invoke(this, EventArgs.Empty));
             FacebookLoginCommand = new RelayCommand(p => FacebookAuthRequested?.Invoke(this, EventArgs.Empty));
+
+
+            TogglePasswordCommand = new RelayCommand(p => IsPasswordVisible = !IsPasswordVisible);
         }
+
         private bool CanExecuteRegister(object parameter)
         {
-            string password = parameter as string;
             return !string.IsNullOrWhiteSpace(Username) &&
-                   !string.IsNullOrWhiteSpace(Email) &&
-                   !string.IsNullOrWhiteSpace(password) &&
+                   IsValidEmail(Email) &&
+                   !string.IsNullOrWhiteSpace(Password) &&
                    Age > 0 &&
                    !string.IsNullOrWhiteSpace(Gender);
         }
 
         private void ExecuteRegister(object parameter)
         {
-            string password = parameter as string;
+            if (!IsValidEmail(Email))
+            {
+                Message = "Invalid email format!";
+                return;
+            }
 
             if (_userManager.Users.ContainsKey(Username.ToLower()))
             {
-                SetMessage("This username already exist!");
+                Message = "Username already exists!";
+                return;
+            }
+            if (Age < 6 || Age > 120)
+            {
+                Message = "Unrealistic age!";
                 return;
             }
             string salt = UserManager.GenerateSalt();
-            string hashedPassword = UserManager.HashPassword(password, salt);
+            string hashedPassword = UserManager.HashPassword(Password, salt);
 
-            var newUser = new User
+            var newUser = new User(Username, hashedPassword, Email, Age, Gender)
             {
-                Username = this.Username,
-                Email = this.Email,
-                Age = this.Age,
-                Gender = this.Gender,
-                PasswordHash = hashedPassword,
                 Salt = salt
             };
 
             _userManager.AddUser(newUser);
             _userManager.SaveUsersToFileJson();
-            SetMessage("Registration successful!");
-        }
-        private bool CanExecuteLogin(object parameter)
-        {
-            return true;
+            Message = "Registration successful! You can sign in.";
         }
 
         private void ExecuteLogin(object parameter)
         {
-            LoginWindowRequested?.Invoke(this, EventArgs.Empty);
+            if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password))
+            {
+                Message = "Enter username and password!";
+                return;
+            }
+
+            bool isAuthenticated = _userManager.CheckCredentials(Username, Password);
+
+            if (isAuthenticated)
+            {
+                Message = $"Welcome, {Username}!";
+                MessageBox.Show("Login Successful!", "Success");
+            }
+            else
+            {
+                Message = "Invalid username or password!";
+            }
         }
+
+        private bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email)) return false;
+            try
+            {
+                return Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {

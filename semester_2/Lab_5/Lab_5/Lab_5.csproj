@@ -14,6 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="bin\Debug\net8.0-windows\users.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\facebook.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

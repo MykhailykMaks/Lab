@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCandidate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Candidate>
+    <pib>Мельник Денис Юрійович</pib>
+    <dateOfbirth>01.01.1980</dateOfbirth>
+    <partia>Партія Д</partia>
+    <popularityIndex>200</popularityIndex>
+    <PIB>Мельник Денис Юрійович</PIB>
+    <DateOfBirth>01.01.1980</DateOfBirth>
+    <Partia>Партія Д</Partia>
+    <PopularityIndex>200</PopularityIndex>
+  </Candidate>
+  <Candidate>
+    <pib>Шевченко Олександр Андрійович</pib>
+    <dateOfbirth>30.03.1975</dateOfbirth>
+    <partia>Партія А</partia>
+    <popularityIndex>400</popularityIndex>
+    <PIB>Шевченко Олександр Андрійович</PIB>
+    <DateOfBirth>30.03.1975</DateOfBirth>
+    <Partia>Партія А</Partia>
+    <PopularityIndex>400</PopularityIndex>
+  </Candidate>
+  <Candidate>
+    <pib>фуфел фуфеленович фуфеленко</pib>
+    <dateOfbirth>25.12.2000</dateOfbirth>
+    <partia>Партія Г</partia>
+    <popularityIndex>400</popularityIndex>
+    <PIB>фуфел фуфеленович фуфеленко</PIB>
+    <DateOfBirth>25.12.2000</DateOfBirth>
+    <Partia>Партія Г</Partia>
+    <PopularityIndex>400</PopularityIndex>
+  </Candidate>
+</ArrayOfCandidate>

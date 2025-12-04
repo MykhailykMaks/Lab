@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\Lab_1(3)\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3315F10A-E9FE-4A4E-B7D1-171A682821D3}|Lab_1(3)\\Lab_1(3).csproj|c:\\users\\user\\source\\repos\\lab_1(3)\\lab_1(3)\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3315F10A-E9FE-4A4E-B7D1-171A682821D3}|Lab_1(3)\\Lab_1(3).csproj|solutionrelative:lab_1(3)\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3315F10A-E9FE-4A4E-B7D1-171A682821D3}|Lab_1(3)\\Lab_1(3).csproj|c:\\users\\user\\source\\repos\\lab_1(3)\\lab_1(3)\\create.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3315F10A-E9FE-4A4E-B7D1-171A682821D3}|Lab_1(3)\\Lab_1(3).csproj|solutionrelative:lab_1(3)\\create.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3315F10A-E9FE-4A4E-B7D1-171A682821D3}|Lab_1(3)\\Lab_1(3).csproj|c:\\users\\user\\source\\repos\\lab_1(3)\\lab_1(3)\\print.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3315F10A-E9FE-4A4E-B7D1-171A682821D3}|Lab_1(3)\\Lab_1(3).csproj|solutionrelative:lab_1(3)\\print.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3315F10A-E9FE-4A4E-B7D1-171A682821D3}|Lab_1(3)\\Lab_1(3).csproj|c:\\users\\user\\source\\repos\\lab_1(3)\\lab_1(3)\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3315F10A-E9FE-4A4E-B7D1-171A682821D3}|Lab_1(3)\\Lab_1(3).csproj|solutionrelative:lab_1(3)\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Print.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Lab_1(3)\\Lab_1(3)\\Print.cs",
+              "RelativeDocumentMoniker": "Lab_1(3)\\Print.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Lab_1(3)\\Lab_1(3)\\Print.cs",
+              "RelativeToolTip": "Lab_1(3)\\Print.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA1wDMAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T19:13:24.321Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Lab_1(3)\\Lab_1(3)\\Create.cs",
+              "RelativeDocumentMoniker": "Lab_1(3)\\Create.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Lab_1(3)\\Lab_1(3)\\Create.cs",
+              "RelativeToolTip": "Lab_1(3)\\Create.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAuwCsAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T17:24:13.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Lab_1(3)\\Lab_1(3)\\User.cs",
+              "RelativeDocumentMoniker": "Lab_1(3)\\User.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Lab_1(3)\\Lab_1(3)\\User.cs",
+              "RelativeToolTip": "Lab_1(3)\\User.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAcwBIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T17:10:45.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Lab_1(3)\\Lab_1(3)\\Program.cs",
+              "RelativeDocumentMoniker": "Lab_1(3)\\Program.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Lab_1(3)\\Lab_1(3)\\Program.cs*",
+              "RelativeToolTip": "Lab_1(3)\\Program.cs*",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwBgAAACdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T16:36:59.857Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\Lab\\semester_2\\Lab_1_1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{823526AD-B930-4276-901C-28E9A20612EA}|Lab_1(1)\\Lab_1(1).csproj|c:\\users\\user\\lab\\semester_2\\lab_1_1\\lab_1(1)\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{823526AD-B930-4276-901C-28E9A20612EA}|Lab_1(1)\\Lab_1(1).csproj|solutionrelative:lab_1(1)\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{823526AD-B930-4276-901C-28E9A20612EA}|Lab_1(1)\\Lab_1(1).csproj|c:\\users\\user\\lab\\semester_2\\lab_1_1\\lab_1(1)\\candidate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{823526AD-B930-4276-901C-28E9A20612EA}|Lab_1(1)\\Lab_1(1).csproj|solutionrelative:lab_1(1)\\candidate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{823526AD-B930-4276-901C-28E9A20612EA}|Lab_1(1)\\Lab_1(1).csproj|c:\\users\\user\\lab\\semester_2\\lab_1_1\\lab_1(1)\\methods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{823526AD-B930-4276-901C-28E9A20612EA}|Lab_1(1)\\Lab_1(1).csproj|solutionrelative:lab_1(1)\\methods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{823526AD-B930-4276-901C-28E9A20612EA}|Lab_1(1)\\Lab_1(1).csproj|c:\\users\\user\\lab\\semester_2\\lab_1_1\\lab_1(1)\\create.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{823526AD-B930-4276-901C-28E9A20612EA}|Lab_1(1)\\Lab_1(1).csproj|solutionrelative:lab_1(1)\\create.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Candidate.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Lab\\semester_2\\Lab_1_1\\Lab_1(1)\\Candidate.cs",
+              "RelativeDocumentMoniker": "Lab_1(1)\\Candidate.cs",
+              "ToolTip": "C:\\Users\\user\\Lab\\semester_2\\Lab_1_1\\Lab_1(1)\\Candidate.cs",
+              "RelativeToolTip": "Lab_1(1)\\Candidate.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAA0wDUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T17:16:52.34Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Methods.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Lab\\semester_2\\Lab_1_1\\Lab_1(1)\\Methods.cs",
+              "RelativeDocumentMoniker": "Lab_1(1)\\Methods.cs",
+              "ToolTip": "C:\\Users\\user\\Lab\\semester_2\\Lab_1_1\\Lab_1(1)\\Methods.cs",
+              "RelativeToolTip": "Lab_1(1)\\Methods.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAwwBkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-14T17:19:41.716Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Lab\\semester_2\\Lab_1_1\\Lab_1(1)\\Create.cs",
+              "RelativeDocumentMoniker": "Lab_1(1)\\Create.cs",
+              "ToolTip": "C:\\Users\\user\\Lab\\semester_2\\Lab_1_1\\Lab_1(1)\\Create.cs",
+              "RelativeToolTip": "Lab_1(1)\\Create.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAmwDIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T17:18:33.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Lab\\semester_2\\Lab_1_1\\Lab_1(1)\\Program.cs",
+              "RelativeDocumentMoniker": "Lab_1(1)\\Program.cs",
+              "ToolTip": "C:\\Users\\user\\Lab\\semester_2\\Lab_1_1\\Lab_1(1)\\Program.cs",
+              "RelativeToolTip": "Lab_1(1)\\Program.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAwwB8AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T17:08:02.246Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

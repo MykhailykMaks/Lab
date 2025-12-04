@@ -1,0 +1,26 @@
+{
+  "murzik": {
+    "Username": "murzik",
+    "PasswordHash": "\u002BQqJZl9QsW/YTvq3h2ZClUYaCYmohS5f4Ded8v6/KN4=",
+    "Salt": "1kJHVuMRFuRmy4VBPt1Enw/Fp0cY04KLXgofnPwuMoU=",
+    "Email": "maximboy2006@gmail.com",
+    "Age": 19,
+    "Gender": "System.Windows.Controls.ComboBoxItem: Male"
+  },
+  "nikitich": {
+    "Username": "nikitich",
+    "PasswordHash": "avbpwo6pBM1S6pP3AtBEE98IA8qATODrCObYMShrT\u002Bw=",
+    "Salt": "QBUMEyFbear84xL2I/WEG9I/tAXXZyb60suN3wJp378=",
+    "Email": "fjdfjskjkl@gm\u0430il.com",
+    "Age": 32,
+    "Gender": "System.Windows.Controls.ComboBoxItem: Male"
+  },
+  "323232": {
+    "Username": "323232",
+    "PasswordHash": "B1jzcY0w\u002ByQqyjsC1OLwoT9ZOZexbQEayjYU/VmzWIw=",
+    "Salt": "VLUijXxUVRdpvFiTMV0V6SvPTiMDbAL\u002B1Oz/4nsaC50=",
+    "Email": "fjdfjo@ukr.net",
+    "Age": 32,
+    "Gender": "System.Windows.Controls.ComboBoxItem: Female"
+  }
+}

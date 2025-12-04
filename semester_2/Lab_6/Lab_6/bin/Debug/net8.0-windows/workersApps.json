@@ -1,0 +1,27 @@
+[
+  {
+    "Pip": "\u041C\u0438\u0445\u0430\u0439\u043B\u0438\u043A \u041C\u0430\u043A\u0441\u0438\u043C \u041E\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\u043E\u0432\u0438\u0447",
+    "Birthdate": "2006-11-13T00:00:00",
+    "Education": "\u0411\u0430\u043A\u0430\u043B\u0430\u0432\u0440",
+    "Languages": [
+      "English"
+    ],
+    "IsGoodAtUsingComputer": true,
+    "YearsOfExperience": 2,
+    "HasRecommendations": false
+  },
+  {
+    "Pip": "\u041A\u043B\u0456\u043D\u0433\u0435\u043D \u041A\u0438\u0440\u0438\u043B\u043E \u0412\u0456\u043A\u0442\u043E\u0440\u043E\u0432\u0438\u0447",
+    "Birthdate": "2007-03-15T00:00:00",
+    "Education": "\u041C\u0430\u0433\u0456\u0441\u0442\u0440",
+    "Languages": [
+      "English",
+      "German",
+      "French",
+      "Chinese"
+    ],
+    "IsGoodAtUsingComputer": true,
+    "YearsOfExperience": 5,
+    "HasRecommendations": true
+  }
+]
